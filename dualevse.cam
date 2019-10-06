@@ -1,7 +1,7 @@
 {
     "author": {
-        "email": "support.eagle@autodesk.com",
-        "name": "Autodesk EAGLE"
+        "email": "ajvandewerken@gmail.com",
+        "name": "A.J. Van De Werken"
     },
     "description": {
         "EN": "\n\n<b>NEW Seeed Eagle 8.6 CAM File for 2-Layer Boards</b><p>\n<b>This CAM file replaces the previous Seeed CAM file designed for versions of Eagle prior to version 8.6. In version 8.6, Gerber X2 format compatibilty was introduced which is not currently supported by Seeed Fusion. Other minor adjustments have also been made.<p>\n<b>This CAM file will generate ten manufacturing files including nine Gerber files in RS-274x format and one drill file in Excellon format. It has been configured for the Seeed Fusion PCB Service and may also be compatible with other manufacturers. A CAM file for 4 layer boards is also available:\nwww.seeedstudio.com/fusion_pcb.html</b><p>\n\n\nTop Copper: pcbname.GTL<br>\nTop Solder Mask: pcbname.GTS<br>\nTop Silkscreen: pcbname.GTO<br>\nTop Paste: pcbname.GTP<p>\n\nBottom Copper: pcbname.GBL<br>\nBottom Solder Mask: pcbname.GBS<br>\nBottom Silkscreen: pcbname.GBO<br>\nBottom Paste: pcbname.GBP<p>\n\nMechanical: pcbname.GML ---> uses the Board Shape object and also the Dimension (20) and Milling (46) layers so that any text in these layers will also be exported<p>\nDrill Layer: pcbname.TXT ---> includes both plated and non-plated holes in a single file<p>\n\n- Seeed Studio Fusion Service<p>\nLast updated 2018/02/26\n\n\n\n"
@@ -144,7 +144,8 @@
                     "filename_format": "%N.GBO",
                     "layers": [
                         22,
-                        26
+                        26,
+                        28
                     ],
                     "milling": false,
                     "name": "Bottom Silkscreen",
@@ -262,7 +263,7 @@
             ]
         }
     ],
-    "timestamp": "2018-12-13T11:08:39",
+    "timestamp": "2019-10-06T14:11:03",
     "type": "EAGLE CAM job",
     "units": "metric",
     "version": "8.6.0"
