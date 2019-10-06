@@ -22,34 +22,36 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
+#ifndef DUALEVSE_H
+#define DUALEVSE_H
 
 // Not Set, Not Connected, Connected Not Ready, Connected Ready, Connected Requires Ventilation
-enum STATE { ST__, ST_A, ST_B, ST_C, ST_D } 
+enum STATE { ST__, ST_A, ST_B, ST_C, ST_D }; 
 
 // Possible CP values
-enum PILOT { CP_ERROR, CP_12V, CP_9V, CP_6V, CP_DIODE }
+enum PILOT { CP_ERROR, CP_12V, CP_9V, CP_6V, CP_DIODE };
 
 // Hardware PIN layout - Arduino NANO
-#define PIN_CP_READ1
-#define PIN_CP_READ2
-#define PIN_PP_READ1
-#define PIN_PP_READ2
-#define PIN_PWM1
-#define PIN_PWM2
-#define PIN_EXT1
-#define PIN_EXT2
-#define PIN_SSR1
-#define PIN_SSR2
-#define PIN_RELAY1
-#define PIN_RELAY2
+#define PIN_CP_READ1 1
+#define PIN_CP_READ2 2
+#define PIN_PP_READ1 3
+#define PIN_PP_READ2 4
+#define PIN_PWM1     5  
+#define PIN_PWM2     6
+#define PIN_EXT1     7
+#define PIN_EXT2     8
+#define PIN_SSR1     9
+#define PIN_SSR2    10
+#define PIN_RELAY1  11
+#define PIN_RELAY2  12
 
 // Configuration values
-struct Config
-{
-  int   MinCurrentEV[2];
-  int   MaxCurrentEV[2];
-  bool  Contacter[2];
-  bool  Solenoid[2];
-  bool  CableLocked; //EVSE2 is always fixed
-}
- 
+struct strConfig{
+  byte MinCurrentEV[2];
+  byte MaxCurrentEV[2];
+  byte Contacter[2];
+  byte Solenoid[2];
+  byte CableLocked[2]; //EVSE2 is always fixed
+};
+
+#endif
