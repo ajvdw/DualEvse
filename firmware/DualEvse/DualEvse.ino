@@ -87,4 +87,58 @@ void setup()
 void loop()
 {
 
+
+//A: CP=12V   No charging plug connected
+
+//B: CP=9V    Charging plug connected 
+//  Voltage at the Control Pilot signal (CP) drops to 9 V.
+//  R2 in vehicle detected.
+//  The voltage value at CP is the result of the series connection of resistor R1 in the charging controller, diode D in the vehicle, and resistor R2 in the vehicle at 12 V.
+//  In status B, the oscillator with pulse width modulation (PWM) is
+//  switched on. The pulse width codes the permissible charging current that the vehicle may take from the charging infrastructure.
+//  The coding is shown in the table below.
+//  B1 (9 V DC): EVSE not ready yet
+//  B2 (9 V PWM): EVSE ready
+   
+//C: CP=6V    Charging without ventilation  
+//  If the vehicle has detected the PWM signal, 
+//  it connects another resistor R3 parallel to R2 via switch S2. 
+//  The resulting voltage value is 6 V (ventilation not required) 
+//  The charging controller connects the mains voltage to the vehicle
+//  via a contactor and charging cable. The charging process begins.
+
+//D: CP=3V    Charging with ventilation required 
+//  If the vehicle has detected the PWM signal, 
+//  it connects another resistor R3 parallel to R2 via switch S2. 
+//  The resulting voltage value is 3 V (ventilation required).
+//  The charging controller connects the mains voltage to the vehicle
+//  via a contactor and charging cable. The charging process begins.   
+  
+//B: CP=9V    Charging completed
+//  The vehicle disconnects resistor R3 again via S2.
+//  The charging controller disconnects the contactor again and with it
+//  the voltage from the charging cable.
+//  Conversely, the charging controller can also indicate to the vehicle
+//  that the charging process should be completed by switching off the
+//  PWM signal.
+
+  if (stateEVSE == ST_A)      
+  {
+    // Set PWM to OFF
+    // Set Contactor OFF
+    // Set CP to continuous 12V
+    // DebugLog "state = (A) inactive"
+                                               // Mark as inactive
+    short cp = readCP(e)
+    
+    if (cp == CP_12V)                                            // Check if we are disconnected, or forced to State A, but still connected to the EV
+    {
+                                   
+    }
+    if (cp == CP_9V)                                             // switch to State B ?
+    {
+      
+    }
+  
+
 }
